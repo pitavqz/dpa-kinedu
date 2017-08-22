@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta charset="utf-8">
+    <title>Daily Activity Plan</title>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body layout="column" flex ng-controller="DpaController as dpactrl">
+    <div>
+        <md-nav-bar md-selected-nav-item="page1" flex="30" >
+            <md-nav-item md-nav-click="goto('page1')" name="page1">Day 1</md-nav-item>
+            <md-nav-item md-nav-href="#page2" name="page3">Day 2</md-nav-item>
+            <md-nav-item md-nav-sref="page3" name="page2">Day 3</md-nav-item>
+            <md-nav-item md-nav-sref="app.page4" sref-opts="{reload: true, notify: true}" name="page4">Day 4</md-nav-item>
+            <md-nav-item md-nav-sref="app.page5" sref-opts="{reload: true, notify: true}" name="page5">Day 5</md-nav-item>
+        </md-nav-bar>
+    </div>
+    <md-content flex layout-align="center center" layout="column" class="md-padding day-content">
+            <div layout="row" layout-align="start start" style="min-width:500px">
+                <label flex class="day-title"> Day 1</label>
+            </div>
+            <div layout="row" class="md-padding" flex>
+                <activity-card></activity-card>
+                <activity-card></activity-card>
+            </div>
+    </md-content>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.js"></script>
+    <script src="node_modules/angular-material/angular-material.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="components/activity-card/activity-card.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

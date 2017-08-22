@@ -1,0 +1,38 @@
+*{
+	font-family: "Avenir Next" !important;
+}
+
+md-nav-bar .md-nav-bar{ background: rgb(27,117,187); color: rgb( 255, 255, 255 );}
+md-nav-bar md-nav-ink-bar {
+  background: rgb( 255, 255, 255 );
+}
+md-nav-bar .md-nav-item{
+    color: rgb( 255, 255, 255);
+}
+md-nav-bar.md-default-theme md-nav-ink-bar,md-nav-bar md-nav-ink-bar,md-tabs.md-default-theme md-ink-bar,md-tabs md-ink-bar {
+color:rgb( 255, 255, 255);
+background:rgb( 255, 255, 255);
+}
+md-nav-bar .md-button._md-nav-button.md-unselected {
+    color: rgba( 242, 240, 240, 0.6);
+}
+.md-button._md-nav-button {
+	color:rgb( 255, 255, 255);
+    text-transform: capitalize !important;
+}
+.md-activity-card{
+	width: 320px;
+}
+.activity-title{
+	font-size: 16px;
+}
+.type-activity {
+	font-size: 12px;
+}
+.day-title{
+	font-size: 24px;
+	color:rgb( 27, 117, 187);
+}
+.day-content{
+	min-height: 500px;
+}
