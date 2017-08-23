@@ -1,2 +1,2 @@
 angular
-.module("App",["ngAnimate","ngAria",'ngMaterial','ngRoute','activityCard','ActivityPlanService']);
+.module("App",["ngAnimate","ngAria",'ngMaterial','ngRoute','ActivityPlanService']);

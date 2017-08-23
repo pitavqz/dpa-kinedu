@@ -22,7 +22,7 @@ md-nav-bar .md-button._md-nav-button.md-unselected {
 }
 .md-activity-card{
 	width: 90%;
-	min-height: 270px;
+	max-height: 320px;
 }
 .activity-title{
 	font-size: 16px;
@@ -38,5 +38,8 @@ md-nav-bar .md-button._md-nav-button.md-unselected {
 	background-color: rgb( 117, 183, 83) !important;
 }
 .activities-row{
-	/*min-height: 320px !important;*/
+}
+.img-card{
+	max-height: 250px;
+	max-width: 300px;
 }

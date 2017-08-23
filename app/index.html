@@ -7,35 +7,33 @@
     <link rel="stylesheet" href="../node_modules/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="app.css">     
 </head>
-<body layout="column" flex ng-controller="DpaController as dpactrl">
-    <div>
-        <md-nav-bar md-selected-nav-item="page1" flex="30" >
-            <md-nav-item md-nav-click="goto('page1')" name="page1">Day 1</md-nav-item>
-            <md-nav-item md-nav-href="#page2" name="page3">Day 2</md-nav-item>
-            <md-nav-item md-nav-sref="page3" name="page2">Day 3</md-nav-item>
-            <md-nav-item md-nav-sref="app.page4" sref-opts="{reload: true, notify: true}" name="page4">Day 4</md-nav-item>
-            <md-nav-item md-nav-sref="app.page5" sref-opts="{reload: true, notify: true}" name="page5">Day 5</md-nav-item>
+<body ng-controller="DpaController as ctrlDpa">
+        <md-nav-bar md-selected-nav-item="ctrlDpa.currentNavItem">
+            <md-nav-item ng-repeat="days in ctrlDpa.planDays" md-nav-click="goto('page{{days.day}}')" name="{{days.day}}">Day {{days.day}}</md-nav-item>
         </md-nav-bar>
-    </div>
-    <md-content flex layout-align="center center" layout="row" class="md-padding">
+    
+    <md-content layout-align="center center" layout="row">
             <div flex layout="row" layout-align="end center">
                 <md-button class="md-fab green-arrow">
                     <md-icon md-font-set="material-icons">keyboard_arrow_left</md-icon>
                 </md-button>
             </div>
-            <div layout="column" layout-align="center center" flex="70" >
-                <div layout="row" layout-align="start center">
-                    <p class="day-title"> Day 1</p>
-                </div>
-                <div  class="activities-row" layout="row">
-                    <activity-card></activity-card>
-                    <activity-card></activity-card>
-                </div>
-                <div class="activities-row" layout="row">
-                    <activity-card></activity-card>
-                    <activity-card></activity-card>
-                </div>
-
+            <div ng-repeat="days in ctrlDpa.planDays" ng-class="{special: $index}" ng-if="ctrlDpa.currentNavItem == days.day" layout="column" layout-align="center center" flex="70">
+                    <p class="day-title">Day {{days.day}}</p>
+                    <div ng-repeat="items in days.items" ng-if="items.type == 'activity'">
+                        <md-card class="md-activity-card">
+                            <img ng-src="{{items.content.thumbnails.size1}}" class="md-card-image img-card">
+                            <md-card-content  layout="row" ng-click="ctrlDpa.showDetail($event,items)">
+                                <div flex="none">
+                                    <img src="./assets/images/icon-kid.png">
+                                </div>
+                                <div flex="70" layout="column" flex-offset="5">
+                                    <label class="activity-title">{{items.content.name}}</label>
+                                    <label class="type-activity">{{items.type}} <span>{{ctrlDpa.currentNavItem}}</span></label>
+                                </div>
+                            </md-card-content>
+                        </md-card>
+                    </div>
             </div>
             <div flex>
                 <md-button class="md-fab green-arrow">
@@ -49,7 +47,6 @@
     <script src="../node_modules/angular-material/angular-material.js"></script>
     <script src="../node_modules/angular-route/angular-route.js"></script>
     <script src="app.js"></script>
-    <script src="components/activity-card/activity-card.js"></script>
     <script src="controllers/dpactrl.js"></script>
     <script src="services/activityplan.js"></script>
 </body>
