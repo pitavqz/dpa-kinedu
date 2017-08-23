@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Daily Activity Plan</title>
-    <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../node_modules/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="app.css">     
 </head>
 <body layout="column" flex ng-controller="DpaController as dpactrl">
     <div>
@@ -16,21 +17,40 @@
             <md-nav-item md-nav-sref="app.page5" sref-opts="{reload: true, notify: true}" name="page5">Day 5</md-nav-item>
         </md-nav-bar>
     </div>
-    <md-content flex layout-align="center center" layout="column" class="md-padding day-content">
-            <div layout="row" layout-align="start start" style="min-width:500px">
-                <label flex class="day-title"> Day 1</label>
+    <md-content flex layout-align="center center" layout="row" class="md-padding">
+            <div flex layout="row" layout-align="end center">
+                <md-button class="md-fab green-arrow">
+                    <md-icon md-font-set="material-icons">keyboard_arrow_left</md-icon>
+                </md-button>
             </div>
-            <div layout="row" class="md-padding" flex>
-                <activity-card></activity-card>
-                <activity-card></activity-card>
+            <div layout="column" layout-align="center center" flex="70" >
+                <div layout="row" layout-align="start center">
+                    <p class="day-title"> Day 1</p>
+                </div>
+                <div  class="activities-row" layout="row">
+                    <activity-card></activity-card>
+                    <activity-card></activity-card>
+                </div>
+                <div class="activities-row" layout="row">
+                    <activity-card></activity-card>
+                    <activity-card></activity-card>
+                </div>
+
+            </div>
+            <div flex>
+                <md-button class="md-fab green-arrow">
+                    <md-icon md-font-set="material-icons">keyboard_arrow_right</md-icon>
+                </md-button>
             </div>
     </md-content>
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-animate/angular-animate.js"></script>
-    <script src="node_modules/angular-aria/angular-aria.js"></script>
-    <script src="node_modules/angular-material/angular-material.js"></script>
-    <script src="node_modules/angular-route/angular-route.js"></script>
-    <script src="components/activity-card/activity-card.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-animate/angular-animate.js"></script>
+    <script src="../node_modules/angular-aria/angular-aria.js"></script>
+    <script src="../node_modules/angular-material/angular-material.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
     <script src="app.js"></script>
+    <script src="components/activity-card/activity-card.js"></script>
+    <script src="controllers/dpactrl.js"></script>
+    <script src="services/activityplan.js"></script>
 </body>
 </html>

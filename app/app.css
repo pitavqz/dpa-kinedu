@@ -1,5 +1,5 @@
 *{
-	font-family: "Avenir Next" !important;
+	font-family: "Avenir Next";
 }
 
 md-nav-bar .md-nav-bar{ background: rgb(27,117,187); color: rgb( 255, 255, 255 );}
@@ -21,7 +21,8 @@ md-nav-bar .md-button._md-nav-button.md-unselected {
     text-transform: capitalize !important;
 }
 .md-activity-card{
-	width: 320px;
+	width: 90%;
+	min-height: 270px;
 }
 .activity-title{
 	font-size: 16px;
@@ -33,6 +34,9 @@ md-nav-bar .md-button._md-nav-button.md-unselected {
 	font-size: 24px;
 	color:rgb( 27, 117, 187);
 }
-.day-content{
-	min-height: 500px;
+.green-arrow{
+	background-color: rgb( 117, 183, 83) !important;
+}
+.activities-row{
+	/*min-height: 320px !important;*/
 }
