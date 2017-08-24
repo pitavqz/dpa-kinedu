@@ -8,12 +8,23 @@ angular.module('App')
 	function getPlan(){
 		return ActivityPlanService.getPlanDays().then(function(response){
 			vm.planDays = response.data.activity_plan.days;
-			console.log(vm.planDays);
 		});
 	}
 
+	vm.nextDay = function(){
+		console.log("NGCLICK NEXT");
+		if(vm.currentNavItem < 5){
+			vm.currentNavItem++;
+		}
+	}
+
+	vm.previousDay = function(){
+		if(vm.currentNavItem != 1){
+			vm.currentNavItem--;
+		}
+	}
+
 	vm.showDetail = function($event,detailInfo){
-		console.log(detailInfo.content.name);
 		$mdDialog.show({
 			controller: DialogController,
 			parent:  angular.element(document.body),
@@ -27,7 +38,8 @@ angular.module('App')
 				  '</md-toolbar'+
 		          '  <md-dialog-content>'+
 				  		'<img ng-src="{{items.content.thumbnails.size4}}">'+
-		          '       <p>{{items.content.description}}</p>' +
+		          		'<span class="detail-title">Description:</span>'+
+		          		'<p>{{items.content.description}}</p>' +
 		          '  </md-dialog-content>' +
 		          '</md-dialog>',
 		    locals: {

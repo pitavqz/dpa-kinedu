@@ -16,6 +16,16 @@ background:rgb( 255, 255, 255);
 md-nav-bar .md-button._md-nav-button.md-unselected {
     color: rgba( 242, 240, 240, 0.6);
 }
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar){
+	background-color: rgb(27,117,187);
+}
+md-dialog{
+	max-width: 50%;
+}
+.md-toolbar-tools h1, .md-toolbar-tools h2, .md-toolbar-tools h3{
+	font-weight: bold;
+	color: rgb( 255, 255, 255);
+}
 .md-button._md-nav-button {
 	color:rgb( 255, 255, 255);
     text-transform: capitalize !important;
@@ -23,12 +33,16 @@ md-nav-bar .md-button._md-nav-button.md-unselected {
 .md-activity-card{
 	width: 90%;
 	max-height: 320px;
+	min-width: 300px;
 }
 .activity-title{
 	font-size: 16px;
 }
 .type-activity {
 	font-size: 12px;
+}
+.detail-title{
+	font-weight: bold;
 }
 .day-title{
 	font-size: 24px;

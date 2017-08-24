@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Daily Activity Plan</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="../node_modules/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="app.css">     
 </head>
@@ -14,29 +15,51 @@
     
     <md-content layout-align="center center" layout="row">
             <div flex layout="row" layout-align="end center">
-                <md-button class="md-fab green-arrow">
+                <md-button class="md-fab green-arrow" ng-click="ctrlDpa.previousDay()">
                     <md-icon md-font-set="material-icons">keyboard_arrow_left</md-icon>
                 </md-button>
             </div>
-            <div ng-repeat="days in ctrlDpa.planDays" ng-class="{special: $index}" ng-if="ctrlDpa.currentNavItem == days.day" layout="column" layout-align="center center" flex="70">
-                    <p class="day-title">Day {{days.day}}</p>
-                    <div ng-repeat="items in days.items" ng-if="items.type == 'activity'">
-                        <md-card class="md-activity-card">
-                            <img ng-src="{{items.content.thumbnails.size1}}" class="md-card-image img-card">
-                            <md-card-content  layout="row" ng-click="ctrlDpa.showDetail($event,items)">
-                                <div flex="none">
-                                    <img src="./assets/images/icon-kid.png">
-                                </div>
-                                <div flex="70" layout="column" flex-offset="5">
-                                    <label class="activity-title">{{items.content.name}}</label>
-                                    <label class="type-activity">{{items.type}} <span>{{ctrlDpa.currentNavItem}}</span></label>
-                                </div>
-                            </md-card-content>
-                        </md-card>
+            <div ng-repeat="days in ctrlDpa.planDays" ng-class="{special: $index}" ng-if="ctrlDpa.currentNavItem == days.day" flex="70" layout="column" layout-align="center center">
+                    <div layout="row">
+                        <p class="day-title">Day {{days.day}}</p>
+                    </div>
+                    <div layout="row" class="animated fadeInRight">
+                        <div layout="column">
+                            <div ng-repeat="items in days.items" ng-if="items.type == 'activity' && $even">
+                                <md-card class="md-activity-card">
+                                    <img ng-src="{{items.content.thumbnails.size1}}" class="md-card-image img-card">
+                                    <md-card-content  layout="row" ng-click="ctrlDpa.showDetail($event,items)">
+                                        <div flex="none">
+                                            <img src="./assets/images/icon-kid.png">
+                                        </div>
+                                        <div flex="70" layout="column" flex-offset="5">
+                                            <label class="activity-title">{{items.content.name}}</label>
+                                            <label class="type-activity">{{items.type}}</label>
+                                        </div>
+                                    </md-card-content>
+                                </md-card>
+                            </div>
+                        </div>
+                        <div layout="column">
+                            <div ng-repeat="items in days.items" ng-if="items.type == 'activity' && $odd">
+                                <md-card class="md-activity-card">
+                                    <img ng-src="{{items.content.thumbnails.size1}}" class="md-card-image img-card">
+                                    <md-card-content  layout="row" ng-click="ctrlDpa.showDetail($event,items)">
+                                        <div flex="none">
+                                            <img src="./assets/images/icon-kid.png">
+                                        </div>
+                                        <div flex="70" layout="column" flex-offset="5">
+                                            <label class="activity-title">{{items.content.name}}</label>
+                                            <label class="type-activity">{{items.type}}</label>
+                                        </div>
+                                    </md-card-content>
+                                </md-card>
+                            </div>
+                        </div>
                     </div>
             </div>
-            <div flex>
-                <md-button class="md-fab green-arrow">
+            <div flex layout="row" layout-align="start center">
+                <md-button class="md-fab green-arrow" ng-click="ctrlDpa.nextDay()">
                     <md-icon md-font-set="material-icons">keyboard_arrow_right</md-icon>
                 </md-button>
             </div>
